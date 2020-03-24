@@ -74,22 +74,22 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 def start(update, context):
-    update.message.reply_text('Hi! \nThis bot can give you live \
-        stats of corona virus cases.\n\nType /help\n\nAny issue? \
-        admin@amanroy.me')
+    update.message.reply_text('Hi! \nThis bot can give you live '\
+        'stats of corona virus cases.\n\nType /help\n\nAny issue? ' \
+        'admin@amanroy.me')
 
 def help(update, context):
-    update.message.reply_text('Commands\n\n/help - shows this \
-        menu\n/links - shows important links related to corona \
-        virus\n/get country_name - shows corona case stats of \
-        that country\n/get total - shows total cases across \
-        countries\n/india state_name - Show stats related to that state')
+    update.message.reply_text('Commands\n\n/help - shows this ' \
+        'menu\n/links - shows important links related to corona ' \
+        'virus\n/get country_name - shows corona case stats of ' \
+        'that country\n/get total - shows total cases across ' \
+        'countries\n/india state_name - Show stats related to that state')
 
 def links(update, context):
-    update.message.reply_text('Here are some important links \
-        -\n\nWHO Myth Busters: http://tiny.cc/coronamyth\nCorona \
-        information(India): http://tiny.cc/mohfw\nQ&A on \
-        coronavirus: http://tiny.cc/qandawho')
+    update.message.reply_text('Here are some important links ' \
+        '-\n\nWHO Myth Busters: http://tiny.cc/coronamyth\nCorona ' \
+        'information(India): http://tiny.cc/mohfw\nQ&A on ' \
+        'coronavirus: http://tiny.cc/qandawho')
 
 def get(update, context):
     user_says = " ".join(context.args)
