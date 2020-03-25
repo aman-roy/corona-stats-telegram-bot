@@ -99,6 +99,13 @@ def india(update, context):
     user_says = " ".join(context.args)
     update.message.reply_text(pritify_india(user_says.lower()))
 
+def command_not_found(update, context):
+    update.message.reply_text('Command not found!\nCommands\n\n/help - shows this ' \
+        'menu\n/links - shows important links related to corona ' \
+        'virus\n/get country_name - shows corona case stats of ' \
+        'that country\n/get total - shows total cases across ' \
+        'countries\n/india state_name - Show stats related to that state')
+
 def error(update, context):
     logger.warning('Update "%s" caused error "%s"', update, context.error)
 
@@ -112,6 +119,9 @@ def main():
     dp.add_handler(CommandHandler("links", links))
     dp.add_handler(CommandHandler("india", india))
     dp.add_handler(CommandHandler("get", get))
+
+    # If user types anything else
+    dp.add_handler(MessageHandler(Filters.text, command_not_found))
 
     dp.add_error_handler(error)
 
