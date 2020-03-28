@@ -1,10 +1,12 @@
-from urllib.request import urlopen
+from urllib.request import urlopen, Request
 from bs4 import BeautifulSoup
 
 # Helper function for parsing data
 def get_country_data(country):
     url = "https://www.worldometers.info/coronavirus/"
-    contents = BeautifulSoup(urlopen(url).read(), \
+    req = Request(url , headers={'User-Agent': 'Mozilla/5.0'})
+ 
+    contents = BeautifulSoup(urlopen(req).read(), \
         features="html.parser")
 
     table_data = [[cell.text.strip().strip(':').lower() \
@@ -32,7 +34,9 @@ def pritify_country(country):
 
 def get_state_data(state):
     url = "https://www.mohfw.gov.in"
-    contents = BeautifulSoup(urlopen(url).read(), \
+    req = Request(url , headers={'User-Agent': 'Mozilla/5.0'})
+
+    contents = BeautifulSoup(urlopen(req).read(), \
         features="html.parser")
 
     table_data = [[cell.text.strip().strip(':').lower() \
